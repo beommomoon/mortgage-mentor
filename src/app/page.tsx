@@ -1,25 +1,25 @@
-'use client';
+'use client'
 
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 export default function HomePage() {
-  const router = useRouter();
+  const { push } = useRouter()
 
   const moveTo = (path: string) => {
-    router.push(path);
-  };
+    push(path)
+  }
 
   return (
     <main
-      className="min-h-screen bg-cover bg-center relative"
-      style={{ backgroundImage: "url('/orange.jpg')" }}
+      className="min-h-screen bg-cover bg-left relative"
+      style={{ backgroundImage: `url('/orange.jpg')` }}
     >
-      <div className="text-center pt-8 px-4">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600 leading-snug">
+      <div className="text-left pt-8 px-4">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-600">
           부동산 담보대출은 모기지멘토
         </h1>
 
-        <div className="flex flex-wrap justify-center gap-2 mt-6 mb-4">
+        <div className="flex flex-wrap justify-start gap-2 mt-6 mb-4">
           {[
             ['상담신청란', 'consultation'],
             ['직장인담보대출', 'benefits'],
@@ -31,21 +31,23 @@ export default function HomePage() {
             <button
               key={path}
               onClick={() => moveTo(`/${path}`)}
-              className="bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base px-3 py-1 rounded shadow font-semibold"
+              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-1 px-3 rounded shadow"
             >
               {label}
             </button>
           ))}
         </div>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-red-600 font-bold mt-4">
+        <p className="text-left text-lg sm:text-xl md:text-2xl text-red-600 font-bold mt-4">
           최대한도! 최저금리!
         </p>
 
-        <button className="mt-4 bg-orange-500 hover:bg-orange-600 text-white text-base px-6 py-2 rounded shadow font-semibold">
+        <button
+          className="mt-4 ml-2 bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base py-1 px-3 rounded shadow"
+        >
           비교분석 클릭
         </button>
       </div>
     </main>
-  );
+  )
 }
